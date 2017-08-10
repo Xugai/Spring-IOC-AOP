@@ -1,0 +1,31 @@
+使用注解进行spring的相关操作：
+	·默认情况下，类被自动发现并注册bean的条件是：使用@Component，@Repository，@Service和
+	@Controller这些注解或者使用@Component的自定义注解
+	·可以使用use-default-filters="false"禁用自动发现与注册
+	
+！错误报告的研究的一些心得：
+	·ClassNotFoundException是JVM在编译期间产生的错误，意思是指在JVM动态加载类前，因为代码所处环境
+		而造成的错误，这种错误可能导致JVM在动态加载期间产生运行时的错误，因为底层类（即在编译期间就完成
+		的类）如果不能在编译期间完成，则在运行时JVM也就无法拿来使用，这样便会抛出另外一个异常：
+		NoClassDefFoundError，这个异常便是JVM在运行时期产生的。有个问题值得注意，如果在编译期间编
+		译器没有任何报错，而在运行时产生上述两个错误，则说明此次报错的类并不是要我们手动编写的，而是
+		编译器从我们的项目的工作路径中进行检取使用的，这样就可以联想到是否有导入相关的jar包了
+		另外，如果在确定JVM抛出了运行时的类加载异常，而我们也有正确的编写相关类，则要考虑下该相关类对于
+		类加载器来说是否可见
+
+@Required：
+	@Required适用于bean属性的setter方法，这个注解仅仅表示，受影响的bean的属性必须在配置时被填充，
+	通过在bean定义或通过自动装配一个明确的属性值
+	
+@Autowired：
+	可以将@Autowired理解为传统的setter方法，它可用于构造器或成员变量
+	
+@Bean：
+	@Bean标识一个用于配置和初始化一个由SpringIOC容器管理的新的对象的方法，类似于xml配置文件的<bean/>
+	
+	
+JSR：JAVA规范请求
+@Inject：
+	·从Spring3.0开始支持JSR330标准注解（依赖注入注解），其扫描方式与Spring注解一致
+	·使用JSR330需要依赖javax.inject包
+	·@Inject等效于@Autowired，可以使用于类、属性、方法、构造器

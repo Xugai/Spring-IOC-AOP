@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="moocBeforeAdvice" class="com.aop.api.MoocBeforeAdvice"></bean>
+	
+	<bean id="moocAfterReturningAdvice" class="com.aop.api.MoocAfterReturningAdvice"></bean>
+	
+	<bean id="moocMethodInterceptor" class="com.aop.api.MoocMethodInterceptor"></bean>
+	
+	<bean id="moocThrowsAdvice" class="com.aop.api.MoocThrowsAdvice"></bean>
+
+	<bean id="bizLogicImplTarget" class="com.aop.api.BizLogicImpl"></bean>
+	
+<!-- 	<bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut"> -->
+<!-- 		<property name="mappedNames"> -->
+<!-- 			<list> -->
+<!-- 				<value>sa*</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+<!--   	<bean id="defaultAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">  -->
+<!-- 		<property name="advice" ref="moocBeforeAdvice"></property> -->
+<!-- 		<property name="pointcut" ref="pointcutBean"></property> -->
+<!-- 	</bean>   -->
+
+	<bean id="bizLogicImpl" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="proxyInterfaces">
+			<value>com.aop.api.BizLogic</value>
+		</property>
+		<property name="target">
+			<ref bean="bizLogicImplTarget"/>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>moocBeforeAdvice</value>
+				<value>moocAfterReturningAdvice</value>
+				<value>moocMethodInterceptor</value>
+				<value>moocThrowsAdvice</value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

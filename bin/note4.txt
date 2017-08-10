@@ -1,0 +1,18 @@
+·Aspect：
+	@Aspectj切面使用@Aspect注解配置，拥有@Aspect的任何bean将被Spring自动识别并应用；
+	用@Aspect注解的类可以有方法和字段，他们也可能包括切入点（ponitcut），通知（advice）和
+	引入（introduction）声明；
+	@Aspect注解是不能通过类路径自动检测发现的，所以需要配合使用@Component注释或者在xml中配置bean；
+	
+·@AfterReturning中有项参数为"returning=xxx"，如：@AfterReturning(pointcut="pointcut()",returning="Value")，
+表示的意思是，@AfterReturning注释的方法要有一个参数，这个参数的名称要为xxx，这样才能匹配到。这样定义是为了获得pointcut执行时
+的返回值？
+
+·After（finally） advice：
+	最终通知必须准备处理正常和异常两种返回情况，它通常用于释放资源
+	
+!void类型在java中，并不是说它真的什么东西什么value都没有返回，只是说它是一种特殊的返回值
+
+·Introductions：
+	允许一个切面声明一个通知对象实现指定接口，并且提供了一个接口实现类来代表这些对象
+	

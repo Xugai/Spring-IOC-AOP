@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+          
+	<!--userDao的第一种实现方法映射的 bean -> userDaoImpl--> 
+  <bean id="userDaoImpl1" class="com.daoImpl.UserDaoImpl1"></bean>
+
+	<!--userDao的第二种实现方法映射的 bean -> userDaoImpl2-->
+  <bean id="userDaoImpl2" class="com.daoImpl.UserDaoImpl2"></bean>
+
+  <!--UserServiceImpl映射的 bean -> userServiceImpl-->
+   <!--在这个bean里 我们来配置userDao的实现类对应的bean，引入property标签。
+     1. name对应当前bean（类）里面的变量名   private UserDao userDao;
+     2. ref表示所关联是哪个bean。 这里我们关联上userDaoImpl2也就是第二种实现方式 class="com.daoImpl.UserDaoImpl2"；
+     3. 完成1，2后，我们可以去把com.serviceImpl.UserServiceImpl文件里，原本在代码里NEW 出实现类的那段话给去掉，spring已经开始进行管理了。
+   -->
+ 
+   <bean id="userServiceImpl" class="com.serviceImpl.UserServiceImpl" >
+   		
+  	</bean>
+
+  	<!-- 使用构造器进行配置bean -->
+  	<!-- 其中构造器的name要和当前bean（类）中的构造函数的参数名称保持一致 -->
+  	<!--
+  	<bean id = "userServiceImpl" class = "com.serviceImpl.UserServiceImpl" scope="singleton">
+  		<constructor-arg name = "userDao" ref = "userDaoImpl1"></constructor-arg>
+  	</bean>
+  	-->
+
+</beans>

@@ -1,0 +1,33 @@
+Schema-based AOP说明：
+	·Spring所有的切面和通知器都必须放在一个<aop:config>的标签内，当然可以配置多个<aop:config>标
+	签，每一个<aop:config>可以包含pointcut，advisor和aspect元素，而且它们必须按照顺序进行声
+	明（先aspect，再pointcut，最后advisor）
+	
+<aop:after-returning>标签中，有个可选参项returning="xxx"，这个可选参项表示匹配的方法的返回值的名称必
+	须要为"xxx"，否则将匹配失败
+	
+Around advice：
+	！通知方法的第一个参数必须是ProceedingJoinPoint类型
+	！环绕通知可以影响after和after-returning方法的执行顺序？
+		·当around放在before、after-returning、after前面时，after后于after-returning；
+		·当around放在before和after-returning之间，after放最后时，after依旧后于after-returning；
+		·当around放在after-returning和after之间时，after先于after-returning，而且此时after
+			的执行方法竟然在环绕通知执行之前，也就是说它也被环绕通知包围；
+		·当around放在最后面时，after先于after-returning；
+		
+		
+·Advisor是仅包含一个切入点表达式关联的单个通知的方面
+·除了introductions，advisor可以用于任何通知
+
+·ProxyFactoryBean是创建Spring AOP代理的基本方法，它可以完全控制切入点和通知以及它们的顺序，在这个代
+理中，如果目标bean实现了proxyInterfaces,即目标bean实现某一接口或多个接口，则不管这个目标bean执行什么
+方法，也就是说，不用限定某个pointcut，只要有方法是由这个目标bean执行的，那么before、after-returning、
+throws-advice和interceptor方法都会执行。通俗地讲，实现了接口就是JDK代理了，而不是默认的CGLIB代理，
+这样就可以不受pointcut的限制，增强了advise的灵活使用。
+
+CGLIB代理的工作原理是在运行时生成目标类的子类，Spring配置这个生成的子类委托方法调用到原来的目标（可以理解
+成Spring通过这个生成的子类的委托方法进而调用到原来的目标）
+
+
+
+	

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="res/libs/" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/OSGi%Minimum-1.2"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-beans-4.3.10.RELEASE.jar" sourcepath="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-beans-4.3.10.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/docs/javadoc-api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-context-4.3.10.RELEASE.jar" sourcepath="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-context-4.3.10.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/docs/javadoc-api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-instrument-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-test-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-core-4.3.10.RELEASE.jar" sourcepath="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-core-4.3.10.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/docs/javadoc-api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-expression-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-messaging-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/commons-logging-1.2/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-aop-4.3.10.RELEASE.jar" sourcepath="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-aop-4.3.10.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/docs/javadoc-api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-orm-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-jms-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/libs/spring-tx-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rabbit/Desktop/spring-framework-4.3.10.RELEASE/aspectj-weaver.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
